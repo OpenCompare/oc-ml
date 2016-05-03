@@ -2,15 +2,14 @@
 library(readr)
 library(FactoMineR)
 
-nclusters = 200
+nclusters = 80
 
-csv = readr::read_csv('outputhead.csv')
-#csv = readr::read_csv('output.csv')
+csv = readr::read_csv('output.csv')
 
 # long !
 res.pca = PCA(csv[,-1], scale.unit = T, ncp = 5, graph = F)
 
-k = kmeans(res.pca$ind$coord, nclusters)
+k = kmeans(res.pca$ind$coord, nclusters, iter.max = 20)
 
 features = colnames(csv)
 

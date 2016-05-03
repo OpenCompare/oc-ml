@@ -26,7 +26,7 @@ public class VisitorTest {
         values = new HashMap();
         features = new ArrayList();
 
-        File folder = new File("pcms/");
+        File folder = new File("pcms800/");
         File[] pcms = folder.listFiles();
 
         for (File f : pcms) {
@@ -71,7 +71,7 @@ public class VisitorTest {
         }
         csvWriter.writeNext(line);
 
-        for(String value : values.keySet()) { // TODO : pas de Set !!
+        for(String value : values.keySet()) {
             line[0] = value;
             for(int i = 0; i < size; i++) {
                 line[i + 1] = "" + values.get(value).getFeature(features.get(i));
